@@ -1,33 +1,48 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import store from "./store";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "./scss/index.scss";
 import { Provider } from "react-redux";
-import { Typography } from "@mui/material";
+import store from "./store";
+import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+let theme = createTheme({
+  palette: {
+    primary: {
+      light: "#FF4A17",
+      main: "#FF4A17",
+      dark: "#FF4A17",
+      contrastText: "#000",
+    },
+    secondary: {
+      light: "#F4F6FA",
+      main: "#ff753a",
+      dark: "#002884",
+      contrastText: "#fff",
+    },
+  },
+  components:{
+    MuiSelect:{
+      styleOverrides:{
+        icon:'#fff'
+      }
+    }
+  }
+});
 
-const NotFound = () => {
-  return (
-    <Typography variant="h3" align="center">
-      Sorry the page can't be loaded!
-      <Typography variant="h5">
-        Contact the site's administrator or support for assistance.
-      </Typography>
-    </Typography>
-  );
-};
+theme = responsiveFontSizes(theme);
 
-if (window.self === window.top) {
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </Provider>
 );
-} else {
-  root.render(<NotFound />);
-}

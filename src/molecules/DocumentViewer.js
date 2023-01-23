@@ -3,9 +3,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const DocumentViewer = () => {
-  const { fileUrl, roi } = useSelector(({ fileData }) => fileData);
+  const { fileUrl } = useSelector(({ fileData }) => fileData);
   return (
-    roi &&
     fileUrl && (
       <Box
         sx={{
@@ -16,6 +15,7 @@ const DocumentViewer = () => {
         }}
       >
         <iframe
+        title="document-viewer"
           width="100%"
           height="100%"
           src={`${fileUrl}#view=fitH`}

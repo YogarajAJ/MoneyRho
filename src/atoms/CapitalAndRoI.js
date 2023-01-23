@@ -2,6 +2,7 @@ import { InputAdornment, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useScreenResolution } from "../hooks/ResponsiveHook";
+import { STYLED_TYPO_PROPS } from "../organisms/Login";
 import { updateFileDataFields } from "../store/slices/FileDataSlice";
 
 const CapitalAndRoI = ({ canEdit = true }) => {
@@ -35,11 +36,11 @@ const CapitalAndRoI = ({ canEdit = true }) => {
 
   const displayReport = (
     <>
-      <Typography>
+      <Typography fontWeight={700} sx={{ color: "#fff" }}>
         Capital Amount {capitalAmount && <>&nbsp;&nbsp;-</>}&nbsp;&nbsp;
         {capitalAmount ? <>{capitalAmount}&#8377;</> : "--"}
       </Typography>
-      <Typography>
+      <Typography fontWeight={700} sx={{ color: "#fff" }}>
         ROI {roi && <>&nbsp;&nbsp;-</>}&nbsp;&nbsp; {roi ? roi + "%" : "--"}{" "}
       </Typography>
     </>
@@ -54,9 +55,12 @@ const CapitalAndRoI = ({ canEdit = true }) => {
         name="capitalAmount"
         value={capitalAmount}
         onChange={handleChange}
+        sx={STYLED_TYPO_PROPS}
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start">&#8377;</InputAdornment>
+            <InputAdornment position="start">
+              <span style={{ color: "#fff" }}>&#8377;</span>
+            </InputAdornment>
           ),
         }}
       />
@@ -68,8 +72,13 @@ const CapitalAndRoI = ({ canEdit = true }) => {
         name="roi"
         value={roi}
         onChange={handleChange}
+        sx={STYLED_TYPO_PROPS}
         InputProps={{
-          endAdornment: <InputAdornment position="start">%</InputAdornment>,
+          endAdornment: (
+            <InputAdornment position="start">
+              <span style={{ color: "#fff" }}>%</span>
+            </InputAdornment>
+          ),
         }}
       />
     </>

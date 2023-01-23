@@ -1,13 +1,19 @@
 import { Stack, Typography } from "@mui/material";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CapitalAndRoI from "../atoms/CapitalAndRoI";
 import FileUploadButton from "../atoms/FileUploadButton";
 import DocumentViewer from "../molecules/DocumentViewer";
 import SelectCategoryTabs from "../molecules/SelectCategoryTabs";
 
+import { resetFileData } from "../store/slices/FileDataSlice";
+
 const FileUpload = () => {
   const { fileUrl } = useSelector(({ fileData }) => fileData);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    return () => dispatch(resetFileData());
+  }, [dispatch]);
   return (
     <Stack alignItems="center" justifyContent="center">
       <br />

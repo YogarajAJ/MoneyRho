@@ -61,14 +61,14 @@ const SelectCategoryTabs = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
           centered
+          
         >
-          <Tab label="Quarterly" />
-          <Tab label="Monthly" />
-          <Tab label="Weekly" />
+          <Tab label="Quarterly" sx={{ color:'#fff'}} />
+          <Tab label="Monthly" sx={{ color:'#fff'}} />
+          <Tab label="Weekly" sx={{ color:'#fff'}}/>
         </Tabs>
       </Box>
       <br />
-
       <Stack
         alignItems="center"
         justifyContent="center"

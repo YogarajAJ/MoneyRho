@@ -41,7 +41,7 @@ const FileUploadButton = () => {
   const upload = async () => {
     const tag = createFileTag(selectedCategory);
     await uploadFile(file, tag);
-    await createData({ roi, capitalAmount }, "files/"+tag);
+    await createData({ roi, capitalAmount }, "files/" + tag);
   };
 
   return (
@@ -61,7 +61,20 @@ const FileUploadButton = () => {
             hidden
           />
         </Button>
-        {file && <Typography>Selected File: {file.name} </Typography>}
+        {file && (
+          <div
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              // wordWrap:'break-word',
+              width: "15rem",
+            }}
+          >
+            <Typography className="might-overflow" variant="body" noWrap sx={{ color: "#fff" }}>
+              <b>Selected File:</b> {file[0].name || " --- "}{" "}
+            </Typography>
+          </div>
+        )}
       </Box>
       <Box minWidth={250}>
         <Button

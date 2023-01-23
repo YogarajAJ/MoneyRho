@@ -1,9 +1,26 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../service/FileService";
 import { updateLoginFields } from "../store/slices/LoginSlice";
+
+export const STYLED_TYPO_PROPS = {
+  "& input": {
+    color: "#fff",
+  },
+  "&& fieldset": {
+    border: "1px solid #fff",
+  },
+  "&& label": {
+    color: "#fff",
+  },
+  "&:hover": {
+    "&& fieldset": {
+      border: "3px solid #FF4A17",
+    },
+  },
+};
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,9 +39,20 @@ const Login = () => {
     if (!email || !password) return;
     const user = await loginUser(email, password);
     if (user) {
-      navigate("/reports", { replace: true });
+      navigate("/upload", { replace: true });
     }
   };
+
+  React.useEffect(() => {
+    return () => {
+      dispatch(
+        updateLoginFields({
+          email: "",
+          password: "",
+        })
+      );
+    };
+  }, [dispatch]);
 
   return (
     <Grid
@@ -33,8 +61,18 @@ const Login = () => {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      sx={{ minHeight: "70vh" }}
+      sx={{
+        minHeight: "70vh",
+        border: "3px solid #fff",
+        width: "50%",
+        margin: "0 auto",
+      }}
     >
+      <Grid item xs={3} lg={4}>
+        <Typography variant="h5" fontWeight={700}>
+          Login
+        </Typography>
+      </Grid>
       <Grid item xs={3} lg={4}>
         <TextField
           autoComplete="off"
@@ -43,6 +81,7 @@ const Login = () => {
           name="email"
           value={email}
           onChange={handleChange}
+          sx={STYLED_TYPO_PROPS}
         />
       </Grid>
       <Grid item xs={3}>
@@ -54,6 +93,7 @@ const Login = () => {
           value={password}
           onChange={handleChange}
           type="password"
+          sx={STYLED_TYPO_PROPS}
         />
       </Grid>
       <Grid item xs={3}>

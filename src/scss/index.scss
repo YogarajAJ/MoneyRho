@@ -1,0 +1,26 @@
+@import "default/color_variable";
+@import "default/typography";
+@import "common/general";
+@import "common/slider";
+@import "common/video-modal";
+@import "common/sidebar";
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.might-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.might-overflow:hover {
+  text-overflow: clip;
+  white-space: normal;
+  word-break: break-all;
+}

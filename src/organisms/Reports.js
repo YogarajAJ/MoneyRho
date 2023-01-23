@@ -10,7 +10,7 @@ const Reports = () => {
     <Stack spacing={3} justifyContent='center' alignItems='center'>
       <Typography variant="h5" align="center">
         <br />
-        Download Reports
+        Reports
       </Typography>
       <SelectCategoryTabs />
       <CapitalAndRoI canEdit={false} />

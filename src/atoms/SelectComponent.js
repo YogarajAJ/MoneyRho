@@ -27,14 +27,33 @@ const SelectComponent = ({ storeKey = "", menuItems = [], label = "" }) => {
   };
   return (
     <Box sx={{ minWidth: 240 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+      <FormControl fullWidth borderColor="primary" color="primary">
+        <InputLabel id="demo-simple-select-label" sx={{ color:'#fff'}}>
+          {label}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={selectedData}
           label="Select"
+          color="primary"
+          variant="outlined"
           onChange={handleChange}
+          sx={{
+            color: '#fff',
+            borderColor:'#fff',
+            '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#FF4A17',
+            },
+            "&:hover": {
+              "&& fieldset": {
+                border: "3px solid #FF4A17"
+              }
+            },
+            '& .MuiSvgIcon-root': {
+                color: '#fff'
+            }
+          }}
         >
           {generateMenuItems()}
         </Select>
