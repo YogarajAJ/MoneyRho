@@ -1034,6 +1034,7 @@ label {
   .cs-shape_2 {
     > div {
       background-color: #181818;
+      opacity: 0.8;
     }
     &:nth-child(1) {
       left: -240px;
@@ -1264,7 +1265,7 @@ label {
 }
 
 .lg-backdrop {
-  background-color: #181818;
+  background-color: #000;
 }
 .lg-toolbar .lg-icon,
 #lg-counter,

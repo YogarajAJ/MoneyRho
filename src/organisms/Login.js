@@ -55,53 +55,54 @@ const Login = () => {
   }, [dispatch]);
 
   return (
-    <Grid
-      container
-      spacing={3}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{
-        minHeight: "70vh",
-        border: "3px solid #fff",
-        width: "50%",
-        margin: "0 auto",
-      }}
-    >
-      <Grid item xs={3} lg={4}>
-        <Typography variant="h5" fontWeight={700}>
-          Login
-        </Typography>
+    <>
+      <Grid
+        container
+        spacing={3}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          minHeight: "70vh",
+          width: { lg: "50%", xs: "100%" },
+          margin: "0 auto",
+        }}
+      >
+        <Grid item xs={3} lg={4}>
+          <Typography variant="h5" fontWeight={700}>
+            Login
+          </Typography>
+        </Grid>
+        <Grid item xs={3} lg={4}>
+          <TextField
+            autoComplete="off"
+            fullWidth
+            label="Email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            sx={STYLED_TYPO_PROPS}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <TextField
+            autoComplete="off"
+            fullWidth
+            label="Password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+            type="password"
+            sx={STYLED_TYPO_PROPS}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <Button onClick={handleLogin} variant="contained">
+            Login
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item xs={3} lg={4}>
-        <TextField
-          autoComplete="off"
-          fullWidth
-          label="Email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          sx={STYLED_TYPO_PROPS}
-        />
-      </Grid>
-      <Grid item xs={3}>
-        <TextField
-          autoComplete="off"
-          fullWidth
-          label="Password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          type="password"
-          sx={STYLED_TYPO_PROPS}
-        />
-      </Grid>
-      <Grid item xs={3}>
-        <Button onClick={handleLogin} variant="contained">
-          Login
-        </Button>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 

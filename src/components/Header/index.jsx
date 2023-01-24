@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import { useScreenResolution } from "../../hooks/ResponsiveHook";
 import { updateLoaderFields } from "../../store/slices/LoaderSlice";
 import { updateLoginFields } from "../../store/slices/LoginSlice";
 import Div from "../Div";
@@ -15,6 +16,7 @@ export default function Header({ variant }) {
   const [mobileToggle, setMobileToggle] = useState(false);
   const dispatch = useDispatch();
 
+  const { isTabletOrMobile } = useScreenResolution();
   const loggedIn = useSelector(({ login }) => login.loggedIn);
 
   useEffect(() => {
@@ -80,6 +82,25 @@ export default function Header({ variant }) {
                         </NavLink>
                       </li>
                     )}
+                    <li className="menu-item">
+                      <NavLink
+                        to="/contact"
+                        onClick={() => setMobileToggle(false)}
+                      >
+                        Contact us
+                      </NavLink>
+                    </li>
+                    {isTabletOrMobile && (
+                      <li className="menu-item">
+                        {loggedIn ? (
+                          <NavLink to="/" onClick={logoutUser}>
+                            Logout
+                          </NavLink>
+                        ) : (
+                          <NavLink to="/login">Login</NavLink>
+                        )}
+                      </li>
+                    )}
                   </ul>
                   <span
                     className={
@@ -93,13 +114,17 @@ export default function Header({ variant }) {
                   </span>
                 </Div>
               </Div>
-              <Div className="cs-main_header_right">
-                {loggedIn ? (
-                  <NavLink to="/" onClick={logoutUser}>Logout</NavLink>
-                ) : (
-                  <NavLink to="/login">Login</NavLink>
-                )}
-              </Div>
+              {!isTabletOrMobile && (
+                <Div className="cs-main_header_right">
+                  {loggedIn ? (
+                    <NavLink to="/" onClick={logoutUser}>
+                      Logout
+                    </NavLink>
+                  ) : (
+                    <NavLink to="/login">Login</NavLink>
+                  )}
+                </Div>
+              )}
             </Div>
           </Div>
         </Div>

@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
+import Div from "../Div";
+import Portfolio from "../Portfolio";
 
-import { Container } from '@mui/material';
 
 export default function PortfolioSlider() {
   const portfolioData = [
@@ -14,6 +15,19 @@ export default function PortfolioSlider() {
       title: "Week 2",
       subtitle: "See Details",
       src: "/images/Carousel2.png",
+    },{
+      title: "Week 1",
+      subtitle: "See Details",
+      src: "/images/Carousel1.png",
+    },
+    {
+      title: "Week 2",
+      subtitle: "See Details",
+      src: "/images/Carousel2.png",
+    },{
+      title: "Week 1",
+      subtitle: "See Details",
+      src: "/images/Carousel1.png",
     },
   ];
 
@@ -21,12 +35,11 @@ export default function PortfolioSlider() {
   const settings = {
     centerMode: true,
     infinite: true,
-    centerPadding: "0",
-    slidesToShow: 1,
+    centerPadding: "0%",
+    slidesToShow: 3,
     speed: 1000,
     dots: true,
     arrows: false,
-    height: "100%",
     responsive: [
       {
         breakpoint: 768,
@@ -36,46 +49,33 @@ export default function PortfolioSlider() {
       },
     ],
   };
-  
+
   return (
-    <Container>
-      <Slider {...settings}>
+    <Slider {...settings} className="cs-slider cs-style3 cs-gap-24">
       {portfolioData.map((item, index) => (
-          <div key={index}>
-            <img
-              src={item.src}
-              alt={item.title}
-              style={{ height: "100%", width: "100%" }}
-            />
-          </div>
-        ))}
-        </Slider>
-    </Container>
+        <Div key={index}>
+          <Portfolio
+            title={item.title}
+            subtitle={item.subtitle}
+            href={item.href}
+            src={item.src}
+          />
+        </Div>
+      ))}
+    </Slider>
+
+    // <div className="custom-slider-container">
+    //   <Slider {...settings} className="cs-slider cs-style3 cs-gap-24">
+    //     {portfolioData.map((item, index) => (
+    //       <div key={index}>
+    //         <img
+    //           src={item.src}
+    //           alt={item.title}
+    //           style={{ height: "100%", width: "100%" }}
+    //         />
+    //       </div>
+    //     ))}
+    //   </Slider>
+    // </div>
   );
 }
- /* <div className="custom-slider-container">
-      <Slider {...settings} className="cs-slider cs-style3 cs-gap-24">
-        {portfolioData.map((item, index) => (
-          <div key={index}>
-            <img
-              src={item.src}
-              alt={item.title}
-              style={{ height: "100%", width: "100%" }}
-            />
-          </div>
-        ))}
-        {/* {portfolioData.map((item, index) => (
-          <Div key={index}>
-            <Portfolio
-              title={item.title}
-              subtitle={item.subtitle}
-              href={item.href}
-              src={item.src}
-            />
-          </Div>
-        ))} 
-      </Slider>
-    </div>
-  // );
-// }
-*/

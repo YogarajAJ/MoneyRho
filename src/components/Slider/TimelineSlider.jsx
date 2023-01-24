@@ -1,51 +1,34 @@
-import { Icon } from '@iconify/react';
-import React from 'react';
-import Slider from 'react-slick';
-import Div from '../Div';
-import Timeline from '../Timeline';
+import { Icon } from "@iconify/react";
+import React from "react";
+import Slider from "react-slick";
+import Div from "../Div";
+import Timeline from "../Timeline";
 
 export default function TimelineSlider() {
   const timelineData = [
     [
       {
-        year: '2019',
-        name: 'Google awards',
-        position: 'Website of the day',
-        type: 'Mobile exelence',
+        year: "Exchange",
+        name: "NSE",
+        position: "Leading stock exchange in india",
       },
       {
-        year: '2021',
-        name: 'CSS awards design',
-        position: 'Honorable mention',
-        type: 'Desktop exelence',
+        year: "Underlying Asset",
+        name: "NIFTY 50",
+        position: "Index consisting of India’s top 50 Large cap companies",
       },
     ],
     [
       {
-        year: '2020',
-        name: 'New technology innovation',
-        position: 'Honorable mention',
-        type: 'Desktop exelence',
+        year: "Contract",
+        name: "Length",
+        position: "Weekly",
       },
       {
-        year: '2022',
-        name: 'UI/UX design of the month',
-        position: 'Website of the day',
-        type: 'Mobile exelence',
-      },
-    ],
-    [
-      {
-        year: '2019',
-        name: 'Google awards',
-        position: 'Website of the day',
-        type: 'Mobile exelence',
-      },
-      {
-        year: '2021',
-        name: 'CSS awards design',
-        position: 'Honorable mention',
-        type: 'Desktop exelence',
+        year: "Segment ",
+        name: "OPTIONS",
+        position:
+          "Contract which gives the right , but not an obligation to buy or sell the underlying asset at a stated date and a price",
       },
     ],
   ];
@@ -55,7 +38,7 @@ export default function TimelineSlider() {
     <div
       {...props}
       className={
-        'slick-prev slick-arrow' + (currentSlide === 0 ? ' slick-disabled' : '')
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
       }
       aria-hidden="true"
       aria-disabled={currentSlide === 0 ? true : false}
@@ -67,8 +50,8 @@ export default function TimelineSlider() {
     <div
       {...props}
       className={
-        'slick-next slick-arrow' +
-        (currentSlide === slideCount - 1 ? ' slick-disabled' : '')
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
       }
       aria-hidden="true"
       aria-disabled={currentSlide === slideCount - 1 ? true : false}

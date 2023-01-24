@@ -14,8 +14,25 @@ import TestimonialSlider from "../Slider/TestimonialSlider";
 import TeamSlider from "../Slider/TeamSlider";
 import VideoModal from "../VideoModal";
 import TimelineSlider from "../Slider/TimelineSlider";
+import { useSelector } from "react-redux";
+import { fetchFacts } from "../../config/RealtimeDatabase";
+import { Grid } from "@mui/material";
+import { get } from "lodash";
 
 export default function Home() {
+  const {
+    monthlyRoi = "",
+    weeklyRoi = "",
+    quarterlyRoi = "",
+  } = useSelector(({ fileData }) => fileData);
+
+  React.useEffect(() => {
+    const getFacts = async () => {
+      await fetchFacts();
+    };
+
+    getFacts();
+  }, []);
 
   // Hero Social Links
   const heroSocialLinks = [
@@ -32,20 +49,16 @@ export default function Home() {
   // FunFact Data
   const funfaceData = [
     {
-      title: "Global Happy Clients",
-      factNumber: "40K",
+      title: "quarterly",
+      factNumber: quarterlyRoi,
     },
     {
-      title: "Project Completed",
-      factNumber: "50K",
+      title: "Monthly",
+      factNumber: monthlyRoi,
     },
     {
-      title: "Team Members",
-      factNumber: "245",
-    },
-    {
-      title: "Digital products",
-      factNumber: "550",
+      title: "weekly",
+      factNumber: weeklyRoi,
     },
   ];
 
@@ -91,7 +104,7 @@ export default function Home() {
               />
               <Spacing lg="90" md="45" />
             </Div>
-            <Div className="col-xl-8">
+            {/* <Div className="col-xl-8">
               <Div className="row">
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6">
@@ -102,6 +115,46 @@ export default function Home() {
                     alt="System Based"
                   />
                   <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Risk Defined"
+                    src="/images/service_2.jpg"
+                    alt="Risk Defined"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Consistent"
+                    src="/images/service_3.jpg"
+                    alt="Consistent"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="Transparent"
+                    src="/images/service_4.jpg"
+                    alt="Transparent"
+                  />
+                  <Spacing lg="0" md="30" />
+                </Div>
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+              </Div>
+            </Div> */}
+            <Div className="col-xl-8">
+              <Div className="row">
+                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
+                <Div className="col-lg-3 col-sm-6">
+                  <Card
+                    title="System Based"
+                    link="/service/service-details"
+                    src="/images/service_1.jpg"
+                    alt="System Based"
+                  />
                 </Div>
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6">
@@ -164,8 +217,8 @@ export default function Home() {
           <Div className="row">
             <Div className="col-xl-4">
               <SectionHeading
-                title="We get multiple awards"
-                subtitle="Our Awards"
+                title="What we Trade"
+                subtitle="Trading Style"
                 variant="cs-style1"
               />
               <Spacing lg="90" md="45" />
@@ -182,19 +235,18 @@ export default function Home() {
       <Spacing lg="130" md="70" />
       <Div className="container">
         <h2 className="cs-font_50 cs-m0 text-center cs-line_height_4">
-          Our agile process is ability to adapt and respond to change. Agile
-          organizations view change as an opportunity, not a threat.
+          LIFE IS FOR A TOILING MAN
         </h2>
         <Spacing lg="70" md="70" />
-        <VideoModal
+        {/* <VideoModal
           videoSrc="https://www.youtube.com/watch?v=VcaAVWtP48A"
           bgUrl="/images/video_bg.jpeg"
-        />
+        /> */}
       </Div>
       {/* End Video Block Section */}
 
       {/* Start Team Section */}
-      <Spacing lg="145" md="80" />
+      {/* <Spacing lg="145" md="80" />
       <Div className="container">
         <SectionHeading
           title="Awesome team <br/>members"
@@ -204,15 +256,15 @@ export default function Home() {
         <Spacing lg="85" md="45" />
         <TeamSlider />
       </Div>
-      <Spacing lg="150" md="80" />
+      <Spacing lg="150" md="80" /> */}
       {/* End Team Section */}
 
       {/* Start Testimonial Section */}
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
       {/* End Testimonial Section */}
 
       {/* Start Blog Section */}
-      <Spacing lg="150" md="80" />
+      {/* <Spacing lg="150" md="80" />
       <Div className="cs-shape_wrap_4">
         <Div className="cs-shape_4"></Div>
         <Div className="cs-shape_4"></Div>
@@ -234,27 +286,27 @@ export default function Home() {
             </Div>
           </Div>
         </Div>
-      </Div>
+      </Div> */}
       {/* End Blog Section */}
 
       {/* Start MovingText Section */}
-      <Spacing lg="125" md="70" />
+      {/* <Spacing lg="125" md="70" />
       <MovingText text="Our reputed world wide partners" />
-      <Spacing lg="105" md="70" />
+      <Spacing lg="105" md="70" /> */}
       {/* End MovingText Section */}
 
       {/* Start LogoList Section */}
-      <Div className="container">
+      {/* <Div className="container">
         <LogoList />
       </Div>
-      <Spacing lg="150" md="80" />
+      <Spacing lg="150" md="80" /> */}
       {/* End LogoList Section */}
 
       {/* Start CTA Section */}
       <Div className="container">
         <Cta
-          title="Let’s disscuse make <br />something <i>cool</i> together"
-          btnText="Apply For Meeting"
+          title="Let’s disscuse make <br />Trade <i>fun</i> together"
+          btnText="Contact us"
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"
         />

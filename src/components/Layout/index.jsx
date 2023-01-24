@@ -12,9 +12,7 @@ export default function Layout({ headerVariant }) {
   return (
     <>
       <Header variant={headerVariant} />
-      <div style={{ marginTop: "20vh" }}>
         <Outlet />
-      </div>
       <LoaderComponent />
       <ToastMessage />
       {/* <CustomCursor /> */}

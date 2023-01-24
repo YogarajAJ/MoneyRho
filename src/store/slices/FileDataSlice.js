@@ -93,6 +93,9 @@ const DEFAULT_STATE = {
   disableFileComponent: true,
   reportMetaData: "",
   displayReport: false,
+  monthlyRoi: "",
+  weeklyRoi: "",
+  quarterlyRoi: "",
 };
 export const FileDataSlice = createSlice({
   name: "fileData",

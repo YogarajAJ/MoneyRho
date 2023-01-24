@@ -42,13 +42,13 @@ export const uploadFile = async (file, tag) => {
         );
       },
       async () => {
-        // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        //   store.dispatch(
-        //     updateFileDataFields({
-        //       fileUrl: downloadURL,
-        //     })
-        //   );
-        // });
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          store.dispatch(
+            updateFileDataFields({
+              fileUrl: downloadURL,
+            })
+          );
+        });
         store.dispatch(
           updateLoaderFields({
             load: false,

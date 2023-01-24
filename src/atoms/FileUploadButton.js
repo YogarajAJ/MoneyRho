@@ -30,7 +30,7 @@ const FileUploadButton = () => {
   };
 
   const handleChange = async (e) => {
-    let myFile = e.target.files;
+    let myFile = e.target.files[0];
     dispatch(
       updateFileDataFields({
         file: myFile,
@@ -71,7 +71,7 @@ const FileUploadButton = () => {
             }}
           >
             <Typography className="might-overflow" variant="body" noWrap sx={{ color: "#fff" }}>
-              <b>Selected File:</b> {file[0].name || " --- "}{" "}
+              <b>Selected File:</b> {file.name || " --- "}{" "}
             </Typography>
           </div>
         )}
