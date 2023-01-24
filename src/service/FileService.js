@@ -1,17 +1,24 @@
 import {
   getDownloadURL,
   getMetadata,
+  listAll,
   ref,
-  uploadBytesResumable
+  uploadBytesResumable,
 } from "firebase/storage";
 import { storage } from "../config/Firebase";
 import { getData } from "../config/RealtimeDatabase";
 import store from "../store";
-import {
-  updateFileDataFields
-} from "../store/slices/FileDataSlice";
+import { updateFileDataFields } from "../store/slices/FileDataSlice";
 import { updateLoaderFields } from "../store/slices/LoaderSlice";
 import { updateLoginFields } from "../store/slices/LoginSlice";
+
+export const fetchImages = async () => {
+  const listRef = ref(storage, "web-app-images/carousel");
+  const result = await listAll(listRef);
+  // All the items under listRef.
+  let urlPromises = result.items.map((itemRef) => getDownloadURL(itemRef));
+  return Promise.all(urlPromises);
+};
 
 export const uploadFile = async (file, tag) => {
   store.dispatch(
@@ -21,7 +28,7 @@ export const uploadFile = async (file, tag) => {
   );
   // 'file' comes from the Blob or File API
   try {
-    const storageRef = ref(storage, tag);
+    const storageRef = ref(storage, "files/" + tag);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
       "state_changed",

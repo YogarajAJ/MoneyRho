@@ -1,30 +1,40 @@
 import React from "react";
 import Slider from "react-slick";
+import { fetchImages } from "../../service/FileService";
 import Div from "../Div";
 import Portfolio from "../Portfolio";
 
-
 export default function PortfolioSlider() {
+  const [images, setImages] = React.useState([]);
+  React.useEffect(() => {
+    const getImages = async () => {
+      const imageList = await fetchImages();
+      setImages(imageList);
+      console.log(imageList);
+    };
+    getImages();
+  }, []);
+  
   const portfolioData = [
     {
-      title: "Week 1",
-      subtitle: "See Details",
-      src: "/images/Carousel1.png",
+      src: "/images/slider/portfolio_1.jpeg",
     },
     {
       title: "Week 2",
       subtitle: "See Details",
-      src: "/images/Carousel2.png",
-    },{
+      src: "/images/slider/portfolio_1.jpeg",
+    },
+    {
       title: "Week 1",
       subtitle: "See Details",
-      src: "/images/Carousel1.png",
+      src: "/images/slider/portfolio_1.jpeg",
     },
     {
       title: "Week 2",
       subtitle: "See Details",
-      src: "/images/Carousel2.png",
-    },{
+      src: "/images/slider/portfolio_1.jpeg",
+    },
+    {
       title: "Week 1",
       subtitle: "See Details",
       src: "/images/Carousel1.png",
@@ -44,7 +54,12 @@ export default function PortfolioSlider() {
       {
         breakpoint: 768,
         settings: {
+          centerPadding: "0%",
           slidesToShow: 1,
+          speed: 1000,
+          dots: true,
+          arrows: false,
+          centerMode: true,
         },
       },
     ],
@@ -52,13 +67,10 @@ export default function PortfolioSlider() {
 
   return (
     <Slider {...settings} className="cs-slider cs-style3 cs-gap-24">
-      {portfolioData.map((item, index) => (
+      {images.map((item, index) => (
         <Div key={index}>
           <Portfolio
-            title={item.title}
-            subtitle={item.subtitle}
-            href={item.href}
-            src={item.src}
+            src={item}
           />
         </Div>
       ))}

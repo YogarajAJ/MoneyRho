@@ -1,8 +1,8 @@
-import { child, getDatabase, get, ref,set } from "firebase/database";
+import { child, getDatabase, get, ref, set, push } from "firebase/database";
 import store from "../store";
 import { updateFileDataFields } from "../store/slices/FileDataSlice";
 import { firebaseApp } from "./Firebase";
-import setData from "lodash/set";
+// import setData from "lodash/set";
 
 const database = getDatabase(firebaseApp);
 
@@ -21,12 +21,13 @@ export const getYears = async () => {
 
 export const createData = async (payload = null, tag = "") => {
   if (!tag || !payload) return null;
-  set(ref(database, tag), {
-    roi: payload.roi,
-    capitalAmount: payload.capitalAmount,
-  });
+  set(ref(database, tag), payload);
 };
 
+export const addData = async (payload=null , tag='') => {
+  if (!tag || !payload) return null;
+  push(ref(database, tag), payload);
+}
 export const getData = async (tag = "") => {
   if (!tag) return null;
   const snapshot = await get(child(ref(database), tag));
@@ -86,19 +87,19 @@ const calculateRoi = ({ monthly = [], weekly = [], quarterly = [] }) => {
   return result;
 };
 
-const createTagData = (tag = "", data = {}) => {
-  const tagList = tag.split("-");
-  let result = "";
-  tagList.forEach((i, index) => {
-    console.log(i);
-    result += `${i}`;
-    if (!(index === tagList.length - 1)) {
-      result += ".";
-    }
-  });
+// const createTagData = (tag = "", data = {}) => {
+//   const tagList = tag.split("-");
+//   let result = "";
+//   tagList.forEach((i, index) => {
+//     console.log(i);
+//     result += `${i}`;
+//     if (!(index === tagList.length - 1)) {
+//       result += ".";
+//     }
+//   });
 
-  let newObj = {};
-  setData(newObj, result, data);
-  console.log(newObj);
-  return newObj;
-};
+//   let newObj = {};
+//   setData(newObj, result, data);
+//   console.log(newObj);
+//   return newObj;
+// };

@@ -17,7 +17,19 @@ const ReportsDataTable = () => {
   const { year, quarter, month, week, reportMetaData, displayReport } =
     useSelector(({ fileData }) => fileData);
 
+  const validateUser = () => {
+    return parseInt(localStorage.getItem('user'));
+  };
+
   const searchReport = async () => {
+    if (!validateUser()) {
+      dispatch(
+        updateFileDataFields({
+          userModal: true,
+        })
+      );
+      return;
+    }
     const tag = createFileTag();
     const metaData = await searchDocument(tag);
     const url = await getFileUrl(tag);

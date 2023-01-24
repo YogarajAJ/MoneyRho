@@ -14,7 +14,8 @@ const DocumentViewer = () => {
           width: "90%",
         }}
       >
-        <embed
+        <iframe
+        title='document-viewer'
           width="100%"
           height="100%"
           src={`${fileUrl}#view=fitH`}

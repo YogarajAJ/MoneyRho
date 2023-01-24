@@ -1,23 +1,15 @@
 import React, { useEffect } from "react";
-import Card from "../Card";
-import FunFact from "../FunFact";
-import Hero from "../Hero";
-import Div from "../Div";
-import SectionHeading from "../SectionHeading";
-import Spacing from "../Spacing";
-import Cta from "../Cta";
-import LogoList from "../LogoList";
-import MovingText from "../MovingText";
-import PortfolioSlider from "../Slider/PortfolioSlider";
-import PostSlider from "../Slider/PostSlider";
-import TestimonialSlider from "../Slider/TestimonialSlider";
-import TeamSlider from "../Slider/TeamSlider";
-import VideoModal from "../VideoModal";
-import TimelineSlider from "../Slider/TimelineSlider";
 import { useSelector } from "react-redux";
 import { fetchFacts } from "../../config/RealtimeDatabase";
-import { Grid } from "@mui/material";
-import { get } from "lodash";
+import Card from "../Card";
+import Cta from "../Cta";
+import Div from "../Div";
+import FunFact from "../FunFact";
+import Hero from "../Hero";
+import SectionHeading from "../SectionHeading";
+import PortfolioSlider from "../Slider/PortfolioSlider";
+import TimelineSlider from "../Slider/TimelineSlider";
+import Spacing from "../Spacing";
 
 export default function Home() {
   const {
@@ -71,7 +63,7 @@ export default function Home() {
       {/* Start Hero Section */}
       <Hero
         title="Trading <br>is our Passion"
-        subtitle="Trading is not about how much one made but how much one kept."
+        subtitle="Trading is not about how much one make but how much one keep."
         btnText="Know our TRADING System"
         btnLink="/contact"
         scrollDownId="#service"
@@ -152,7 +144,7 @@ export default function Home() {
                   <Card
                     title="System Based"
                     link="/service/service-details"
-                    src="/images/service_1.jpg"
+                    src="/images/principle/service_1.png"
                     alt="System Based"
                   />
                 </Div>
@@ -160,7 +152,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Risk Defined"
-                    src="/images/service_2.jpg"
+                    src="/images/principle/service_3.png"
                     alt="Risk Defined"
                   />
                   <Spacing lg="0" md="30" />
@@ -168,7 +160,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Consistent"
-                    src="/images/service_3.jpg"
+                    src="/images/principle/service_2.png"
                     alt="Consistent"
                   />
                   <Spacing lg="0" md="30" />
@@ -177,7 +169,7 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6">
                   <Card
                     title="Transparent"
-                    src="/images/service_4.jpg"
+                    src="/images/principle/service_4.png"
                     alt="Transparent"
                   />
                   <Spacing lg="0" md="30" />

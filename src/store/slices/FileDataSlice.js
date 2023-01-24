@@ -96,6 +96,7 @@ const DEFAULT_STATE = {
   monthlyRoi: "",
   weeklyRoi: "",
   quarterlyRoi: "",
+  userModal: false
 };
 export const FileDataSlice = createSlice({
   name: "fileData",

@@ -11,11 +11,18 @@ import { resetFileData } from "../store/slices/FileDataSlice";
 const FileUpload = () => {
   const { fileUrl } = useSelector(({ fileData }) => fileData);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 10);
+  }, []);
+
   React.useEffect(() => {
     return () => dispatch(resetFileData());
   }, [dispatch]);
   return (
     <Stack alignItems="center" justifyContent="center">
+      <br />
+      <br />
       <br />
       <Typography variant="h4" align="center">
         Upload Reports

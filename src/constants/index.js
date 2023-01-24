@@ -23,6 +23,7 @@ export const WEEKLY_CATEGORY_VALUES = [
   { label: "Week-2", value: "W2" },
   { label: "Week-3", value: "W3" },
   { label: "Week-4", value: "W4" },
+  { label: "Week-5", value: "W5" },
 ];
 
 export const MONTH_VALUES = [

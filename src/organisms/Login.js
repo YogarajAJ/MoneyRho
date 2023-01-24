@@ -54,6 +54,10 @@ const Login = () => {
     };
   }, [dispatch]);
 
+  React.useEffect(() => {
+    window.scrollTo(0, 10);
+  }, []);
+
   return (
     <>
       <Grid
