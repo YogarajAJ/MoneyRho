@@ -55,7 +55,7 @@ const SelectCategoryTabs = () => {
 
   return (
     <React.Fragment>
-      <Box sx={{ borderBottom: 1, bordercolor: "divider" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}

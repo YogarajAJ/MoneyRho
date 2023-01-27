@@ -27,7 +27,7 @@ const SelectComponent = ({ storeKey = "", menuItems = [], label = "" }) => {
   };
   return (
     <Box sx={{ minWidth: 240 }}>
-      <FormControl fullWidth bordercolor="primary" color="primary">
+      <FormControl fullWidth borderColor="primary" color="primary">
         <InputLabel id="demo-simple-select-label" sx={{ color:'#fff'}}>
           {label}
         </InputLabel>
@@ -41,9 +41,9 @@ const SelectComponent = ({ storeKey = "", menuItems = [], label = "" }) => {
           onChange={handleChange}
           sx={{
             color: '#fff',
-            bordercolor:'#fff',
+            borderColor:'#fff',
             '& .MuiOutlinedInput-notchedOutline': {
-                bordercolor: '#FF4A17',
+                borderColor: '#FF4A17',
             },
             "&:hover": {
               "&& fieldset": {
