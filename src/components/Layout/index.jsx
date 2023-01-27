@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import LoaderComponent from "../../atoms/LoaderComponent";
 import ToastMessage from "../../atoms/ToastMessage";
+import CustomCursor from "../CustomCursor";
 import Footer from "../Footer";
 import Header from "../Header";
 
@@ -15,7 +16,7 @@ export default function Layout({ headerVariant }) {
         <Outlet />
       <LoaderComponent />
       <ToastMessage />
-      {/* <CustomCursor /> */}
+      <CustomCursor />
       <Footer />
     </>
   );

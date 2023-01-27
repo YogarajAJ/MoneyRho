@@ -13,12 +13,13 @@ const ReportsDataTable = () => {
   const selectedCategory = useSelector(
     ({ category }) => category.selectedCategory
   );
+  const loggedIn = useSelector(({login})=> login.loggedIn);
 
   const { year, quarter, month, week, reportMetaData, displayReport } =
     useSelector(({ fileData }) => fileData);
 
   const validateUser = () => {
-    return parseInt(localStorage.getItem('user'));
+    return parseInt(localStorage.getItem('user')) || loggedIn;
   };
 
   const searchReport = async () => {

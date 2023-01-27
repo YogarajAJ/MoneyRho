@@ -24,6 +24,7 @@ const FileUpload = () => {
       <br />
       <br />
       <br />
+      <br />
       <Typography variant="h4" align="center">
         Upload Reports
       </Typography>

@@ -97,7 +97,12 @@ export default function Header({ variant }) {
                             Logout
                           </NavLink>
                         ) : (
-                          <NavLink to="/login">Login</NavLink>
+                          <NavLink
+                            to="/login"
+                            onClick={() => setMobileToggle(false)}
+                          >
+                            Login
+                          </NavLink>
                         )}
                       </li>
                     )}

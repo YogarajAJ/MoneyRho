@@ -21,6 +21,7 @@ const Reports = () => {
   return (
     <Stack spacing={3} justifyContent="center" alignItems="center">
       <br />
+      <br />
       <Typography variant="h5" align="center">
         <br />
         Reports

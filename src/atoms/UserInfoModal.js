@@ -1,23 +1,15 @@
 import CloseIcon from "@mui/icons-material/Close";
 import {
-  Box,
-  Button,
   Dialog,
   DialogContent,
   DialogContentText,
-  DialogTitle,
-  FormControl,
-  Icon,
-  InputLabel,
-  TextField,
-  Typography,
+  DialogTitle, Icon, Typography
 } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Div from "../components/Div";
 import Spacing from "../components/Spacing";
 import { addData } from "../config/RealtimeDatabase";
-import { STYLED_TYPO_PROPS } from "../organisms/Login";
 import { updateFileDataFields } from "../store/slices/FileDataSlice";
 import { updateLoaderFields } from "../store/slices/LoaderSlice";
 
@@ -92,7 +84,7 @@ const UserInfoModal = () => {
       }}
     >
       <DialogTitle>
-        <Typography align="end">
+        <Typography align="right">
           <CloseIcon
             color="primary"
             sx={{ cursor: "pointer" }}
