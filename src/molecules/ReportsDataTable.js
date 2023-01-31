@@ -32,9 +32,9 @@ const ReportsDataTable = () => {
       return;
     }
     const tag = createFileTag();
-    const metaData = await searchDocument(tag);
-    const url = await getFileUrl(tag);
-    const data = await getData("files/" + tag);
+    const metaData = await searchDocument(`files/${tag}`);
+    const url = await getFileUrl(`files/${tag}`);
+    const data = await getData(`files/${tag}`);
     dispatch(
       updateFileDataFields({
         reportMetaData: get(metaData, "name"),
